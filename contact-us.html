@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Kesarinandan Travels</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.custom.structure.min.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.custom.theme.carhire.min.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+        <link rel="stylesheet" href="css/app.css" />
+
+        <!-- jQuery / jQueryMobile Scripts -->
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/jquery.mobile.custom.min.js"></script>
+        <script>
+            $( document ).on( "pagecreate", function() {
+                $( document ).on( "swipeleft swiperight", function( e ) {
+                    if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
+                        if ( e.type === "swipeleft" ) {
+                            $( "#right-panel" ).panel( "open" );
+                        } else if ( e.type === "swiperight" ) {
+                            $( "#left-panel" ).panel( "open" );
+                        }
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div data-role="page" data-theme='a'>
+            <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="left-panel" data-theme="b">
+                <ul data-role="listview" data-theme="b" data-divider-theme="b" style="margin-top:-16px;" class="nav-menu">
+                    <li><a href="car-hire.html" data-transition="slide">Car Hire</a></li>
+                    <li><a href="dashboard.html" data-transition="slide">Bus Booking</a></li>
+                    <li><a href="dashboard.html" data-transition="slide">Rail Booking</a></li>
+                    <li><a href="dashboard.html" data-transition="slide">Air Tickets</a></li>
+                    <li><a href="contact-us.html" data-transition="slide">Contact Us</a></li>
+                </ul>
+            </div>
+            <div data-role="header">
+                <a href="#left-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+                <h1>Contact Us</h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" data-inset="true" data-shadow="false">
+                    <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                        <h2>Address</h2>
+                        <ul data-role="listview" data-theme="b">
+                            <li>
+                                <form>
+                                    <fieldset data-role="controlgroup" data-type="horizontal" style="line-height:22px;">
+                                        Shop No. 7,<br>
+                                        Savant Vihar Phase II,<br>
+                                        Near Katraj Dairy,<br>
+                                        Pune - 411046.
+                                    </fieldset>
+                                </form>
+                            </li>
+                            <li><a href="tel:+919689003393">Call +91 9850009030</a></li>
+                        </ul>
+                    </li>
+                    <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                        <h2>Call</h2>
+                        <ul data-role="listview" data-theme="b">
+                            <li><a href="tel:+919689003393">Call +91 9689003393</a></li>
+                            <li><a href="tel:+919689003393">Call +91 9850009030</a></li>
+                        </ul>
+                    </li>
+                    <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                        <h2>Website</h2>
+                        <ul data-role="listview" data-theme="b">
+                            <li><a target="_blank" href="http://carhirepune.in">www.carhirepune.in</a></li>
+                        </ul>
+                    </li>
+                    <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                        <h2>Email</h2>
+                        <ul data-role="listview" data-theme="b">
+                            <li><a href="mailto:kesarinandan.travels@gmail.com">kesarinandan.travels@gmail.com</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

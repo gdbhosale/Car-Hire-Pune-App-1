@@ -1,2 +1,10 @@
 .logo{max-width:100%;width:280px;margin:10% auto;}
 .ui-mobile .ui-page{background:#FFF;}
+
+
+.ui-li-static.ui-collapsible > .ui-collapsible-heading {margin: 0;}
+.ui-li-static.ui-collapsible {padding: 0;}
+.ui-li-static.ui-collapsible > .ui-collapsible-heading > .ui-btn {border-top-width: 0;}
+.ui-li-static.ui-collapsible > .ui-collapsible-heading.ui-collapsible-heading-collapsed > .ui-btn,
+.ui-li-static.ui-collapsible > .ui-collapsible-content {border-bottom-width: 0;}
+.ui-group-theme-b .ui-btn{background-color: #333;border-color: #1f1f1f;color: #fff;text-shadow: 0 1px 0 #111;}
