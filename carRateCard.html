@@ -8,30 +8,41 @@
         <link rel="stylesheet" href="css/jquery.mobile.custom.theme.carhire.min.css" />
         <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
         <link rel="stylesheet" href="css/app.css" />
-
+        
         <!-- jQuery / jQueryMobile Scripts -->
         <script src="js/jquery-1.9.1.min.js"></script>
         <script src="js/jquery.mobile.custom.min.js"></script>
     </head>
     <body>
         <div data-role="page" data-theme='b'>
+            <!--<div data-role="panel" id="mypanel">
+<ul data-role="listview">
+<li><a href="dashboard.html" data-transition="slide">Car Hire</a></li>
+<li><a href="dashboard.html" data-transition="slide">Bus Booking</a></li>
+<li><a href="dashboard.html" data-transition="slide">Air Tickets</a></li>
+</ul>
+</div>-->
+
             <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="mypanel" data-theme="a">
-                
+
+                <ul data-role="listview" data-theme="a" data-divider-theme="a" style="margin-top:-16px;" class="nav-search">
+                    <li data-icon="delete" style="background-color:#111;">
+                        <a href="#" data-rel="close">Close menu</a>
+                    </li>
+                    <li data-filtertext=""><a href="carRateCard.html" data-transition="slide">Car Hire Rate Card</a></li>
+                    <li data-filtertext=""><a href="dashboard.html" data-transition="slide">Car Hire Booking</a></li>
+                    <li data-filtertext=""><a href="dashboard.html" data-transition="slide">Bus Booking</a></li>
+                    <li data-filtertext=""><a href="dashboard.html" data-transition="slide">Air Tickets</a></li>
+
+                </ul>
             </div>
             <div data-role="header">
                 <a href="#mypanel" data-icon="bars" data-iconpos="notext">Menu</a>
                 <h1>Car Hire</h1>
             </div>
             <div data-role="content">   
-                Ji.......
+
             </div>
         </div>
     </body>
-    <script>
-        $(document).on('pagebeforeshow', '[data-role="page"]', function(){       
-            $.mobile.activePage.find('[data-role="panel"]').load("panel.html", function(){ 
-                $(this).parent().trigger('pagecreate');
-            });
-        });
-    </script>
 </html>
