@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.dwij.pg2app"
+        id        = "com.dwij.kesari1"
         versionCode="1"
         version   = "1.0">
-    <name>Phone Gap Login Demo</name>
+    <name>Kesarinandan Travels</name>
     <description>
-        Application showing  Login UI With Sliding Effect..		</description>
+        Car Hire Pune can provide you the best fare rates with elegant service.		</description>
     <author href="dwijitsolutions.com" email="ganesh@dwijitsolutions.com">
         Dwij IT Solutions
     </author>
     <gap:platform name="android" />
-    <gap:platform name="ios" />
-    <!--
     
+    <!--
+    <gap:platform name="ios" />
     <gap:platform name="winphone" />
     -->
     
@@ -71,6 +71,8 @@
     <gap:splash src="res/screen/android/screen-mdpi-portrait.png" gap:platform="android" gap:density="mdpi" />
     <gap:splash src="res/screen/android/screen-hdpi-portrait.png" gap:platform="android" gap:density="hdpi" />
     <gap:splash src="res/screen/android/screen-xhdpi-portrait.png" gap:platform="android" gap:density="xhdpi" />
+    
+    <gap:splash src="res/icon/android/icon-144-xxhdpi.png" gap:platform="android" gap:density="xxhdpi" />
     
 
     <!--
