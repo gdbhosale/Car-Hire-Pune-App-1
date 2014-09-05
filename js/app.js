@@ -12,6 +12,9 @@ function convertToArray(a) {
     });
     return o;
 }
+function goBack() {
+    window.history.go(-3);
+}
 $( document ).on( "pagecreate", function() {
     $( document ).on( "swipeleft swiperight", function( e ) {
         if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {

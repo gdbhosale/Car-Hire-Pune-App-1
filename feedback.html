@@ -38,20 +38,66 @@
                 <h1>Feedback Form</h1>
             </div>
             <div data-role="content">
-                <form method="post" action="">
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" id="name" value="">
-                    <label for="phone">Phone:</label>
-                    <input type="tel" name="phone" id="phone" value="">
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" value="">
-                    <label for="subject">Subject:</label>
-                    <input type="text" name="subject" id="subject" value="">
-                    <label for="message">Message:</label>
-                    <textarea cols="40" rows="8" name="message" id="message"></textarea>
+                <form id="feedback-form" method="post" action="">
+                    <label for="feedback_name">Name:</label>
+                    <input type="text" name="feedback_name" id="feedback_name" value="">
+                    <label for="feedback_phone">Phone:</label>
+                    <input type="tel" name="feedback_phone" id="feedback_phone" value="">
+                    <label for="feedback_email">Email:</label>
+                    <input type="email" name="feedback_email" id="feedback_email" value="">
+                    <label for="feedback_subject">Subject:</label>
+                    <input type="text" name="feedback_subject" id="feedback_subject" value="">
+                    <label for="feedback_message">Message:</label>
+                    <div><textarea cols="40" rows="8" name="feedback_message" id="feedback_message"></textarea></div>
                     <br>
                     <input type="submit" class="ui-shadow ui-btn ui-btn-b ui-corner-all" value="Submit">
                 </form>
+				<script>
+                    $(document).ready(function() {
+                        $('#feedback-form').validate({
+                            rules : {
+                                feedback_name:{required : true},
+                                feedback_phone:{required : true},
+                                feedback_email:{required : true},
+                                feedback_subject:{required : true},
+                                feedback_message:{required : true}
+                            },
+
+                            // Messages for form validation
+                            messages : {
+                                feedback_name:{required : "Please enter name"},
+                                feedback_phone:{required : "Please enter phone"},
+                                feedback_email:{required : "Please enter email"},
+                                feedback_subject:{required : "Please enter subject"},
+                                feedback_message:{required : "Please enter message"}
+                            },
+
+                            // Do not change code below
+                            errorPlacement : function(error, element) {
+                                error.insertAfter(element.parent());
+                            },
+                            submitHandler: function(form) {
+                                /*var data = convertToArray($('#flight-booking-form').serializeArray());
+                                console.log(JSON.stringify(data));
+                                localStorage.setItem("cnt-req", "flight-booking");
+                                localStorage.setItem("flight-booking", JSON.stringify(data));
+                                $.mobile.changePage( "inquirySubmit.html", { transition: "slide", changeHash: true });
+                                return false; */
+								
+								$.ajax({
+									url: "http://carhirepune.in/webservices/feedback.php",
+									type: "POST",
+									data: $(this).serialize(),
+								}).done(function(data) {
+									console.log(data);
+									$.mobile.changePage( "success.html", { transition: "slide", changeHash: true });
+								});
+								
+                            }
+                        });
+                    });
+
+                </script>
             </div>
         </div>
     </body>
