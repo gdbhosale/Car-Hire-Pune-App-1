@@ -12,20 +12,9 @@
         <!-- jQuery / jQueryMobile Scripts -->
         <script src="js/jquery-1.9.1.min.js"></script>
         <script src="js/jquery.mobile.custom.min.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
         <script src="js/app.js"></script>
-        <script>
-            $( document ).on( "pagecreate", function() {
-                $( document ).on( "swipeleft swiperight", function( e ) {
-                    if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
-                        if ( e.type === "swipeleft" ) {
-                            $( "#right-panel" ).panel( "open" );
-                        } else if ( e.type === "swiperight" ) {
-                            $( "#left-panel" ).panel( "open" );
-                        }
-                    }
-                });
-            });
-        </script>
+        
     </head>
     <body>
         <div data-role="page" data-theme='a'>
@@ -50,12 +39,12 @@
             </div>
             <div data-role="content">
                 <form method="post" name="inq-form" id="inq-form" action="">
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" id="name" value="">
+                    <label for="inq_name">Name:</label>
+                    <input type="text" name="inq_name" id="inq_name" value="">
                     <label for="phone">Phone:</label>
-                    <input type="tel" name="phone" id="phone" value="">
+                    <input type="tel" name="inq_phone" id="inq_phone" value="">
                     <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" value="">
+                    <input type="email" name="inq_email" id="inq_email" value="">
                     <input type="submit" class="ui-shadow ui-btn ui-btn-b ui-corner-all" value="Process">
                 </form>
                 <script>
@@ -66,7 +55,13 @@
                         cntReq = JSON.parse(cntReq);
                         
                         var userInfo = localStorage.getItem("user-info");
-                        userInfo = JSON.parse(userInfo);
+                        if(userInfo) {
+                            console.log(userInfo);
+                            userInfo = JSON.parse(userInfo);
+                            $("#inq_name").val(userInfo.inq_name);
+                            $("#inq_phone").val(userInfo.inq_phone);
+                            $("#inq_email").val(userInfo.inq_email);
+                        }
                         
                         $("#inq-form").submit(function( event ) {
                             event.preventDefault();
@@ -84,6 +79,7 @@
                                 data: obj
                             }).done(function(data) {
                                 console.log(data);
+                                $.mobile.changePage( "success.html", { transition: "slide", changeHash: true });
                             });
                         });
                     });

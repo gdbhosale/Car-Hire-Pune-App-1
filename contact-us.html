@@ -5,36 +5,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" href="css/font-awesome.min.css" />
         <link rel="stylesheet" href="css/jquery.mobile.custom.structure.min.css" />
-        <link rel="stylesheet" href="css/jquery.mobile.custom.theme.carhire.min.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.custom.theme.min.css" />
         <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
         <link rel="stylesheet" href="css/app.css" />
 
         <!-- jQuery / jQueryMobile Scripts -->
         <script src="js/jquery-1.9.1.min.js"></script>
         <script src="js/jquery.mobile.custom.min.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
         <script src="js/app.js"></script>
-        <script>
-            $( document ).on( "pagecreate", function() {
-                $( document ).on( "swipeleft swiperight", function( e ) {
-                    if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
-                        if ( e.type === "swipeleft" ) {
-                            $( "#right-panel" ).panel( "open" );
-                        } else if ( e.type === "swiperight" ) {
-                            $( "#left-panel" ).panel( "open" );
-                        }
-                    }
-                });
-            });
-        </script>
+        
     </head>
     <body>
         <div data-role="page" data-theme='a'>
             <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="left-panel" data-theme="b">
-                <ul data-role="listview" data-theme="b" data-divider-theme="b" style="margin-top:-16px;" class="nav-menu">
-                    <li><a href="car-hire.html" data-transition="slide">Car Hire</a></li>
-                    <li><a href="dashboard.html" data-transition="slide">Bus Booking</a></li>
-                    <li><a href="dashboard.html" data-transition="slide">Rail Booking</a></li>
-                    <li><a href="dashboard.html" data-transition="slide">Air Tickets</a></li>
+                <ul data-role="listview" data-theme="b" style="margin-top:-16px;" class="nav-menu">
+                    <li data-role="collapsible" data-iconpos="right" data-inset="false">
+                        <h2>Car Hire</h2>
+                        <ul data-role="listview" data-theme="a">
+                            <li data-theme="a"><a href="car-hire-outstation.html" data-transition="slide">Out Station</a></li>
+                            <li data-theme="a"><a href="car-hire-local.html" data-transition="slide">Local</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="bus-booking.html" data-transition="slide">Bus Booking</a></li>
+                    <li><a href="rail-booking.html" data-transition="slide">Rail Booking</a></li>
+                    <li><a href="air-booking.html" data-transition="slide">Air Tickets</a></li>
                     <li><a href="contact-us.html" data-transition="slide">Contact Us</a></li>
                 </ul>
             </div>

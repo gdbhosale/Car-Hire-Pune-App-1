@@ -35,18 +35,17 @@
             </div>
             <div data-role="header">
                 <a href="#left-panel" data-icon="bars" data-iconpos="notext">Menu</a>
-                <h1>Out Station</h1>
+                <h1>Railway Booking</h1>
             </div>
             <div data-role="content">
-                <form method="post" name="req-form" id="req-car-hire-outstation" action="">
-                    <label for="rcho_from">From:</label>
-                    <select name="rcho_from" id="rcho_from">
+                <form method="post" name="req-form" id="train-booking-form" action="">
+                    <label for="train_book_from">From:</label>
+                    <select name="train_book_from" id="train_book_from">
                         <option>Pune</option>
                         <option>Mumbai</option>
-                        <option>Shirdi</option>
                     </select>
-                    <label for="rcho_to">To:</label>
-                    <select name="rcho_to" id="rcho_to">
+                    <label for="train_book_to">To:</label>
+                    <select name="train_book_to" id="train_book_to">
                         <option value="">To City</option>
                         <option value="0">Other</option>
                         <option value="Abohar">Abohar</option>
@@ -307,76 +306,40 @@
                         <option value="Yavatmal">Yavatmal</option>
                         <option value="0">None of above</option>
                     </select>
-                    <input type="text" name="rcho_to_text" id="rcho_to_text" value="" placeholder="To city">
-                    <label for="rcho_date">Date:</label>
-                    <input type="date" name="rcho_date" id="rcho_date" value="" max="2020-12-31">
-                    <label for="rcho_time">Pickup Time:</label>
-                    <input type="time" name="rcho_time" id="rcho_time" value="10:00 AM">
-                    <label for="rcho_days">Number of days:</label>
-                    <input type="number" name="rcho_days" pattern="[0-9]*" id="rcho_days" value="1" min="1">
-                    <label for="rcho_vehicle">Vehicle: </label>
-                    <select name="rcho_vehicle" id="rcho_vehicle">
-                        <option value="innova">Toyota Innova</option>
-                        <option value="tavera">Chevrolet Tavera</option>
-                        <option value="scorpio">Mahindra Scorpio</option>
-                        <option value="bolero">Mahindra Bolero</option>
-                        <option value="xuv">Mahindra XUV</option>
-                        <option value="swift">Maruti Suzuki Swift</option>
-                        <option value="wagonr">Maruti Suzuki WagonR</option>
-                        <option value="alto">Maruti Suzuki Alto</option>
-                        <option value="eeco">Maruti Suzuki Eeco</option>
-                        <option value="swift_dezire">Swift Dezire</option>
-                        <option value="ford_figo">Ford Fiesta</option>
-                        <option value="ford_fiesta">Ford Figo</option>
-                        <option value="safari">Tata Safari</option>
-                        <option value="safari">Tata Aria</option>
-                        <option value="sumo">Tata Sumo</option>
-                        <option value="sumo">Tata Sumo Grande</option>
-                        <option value="indica">Tata Indica</option>
-                        <option value="indica">Tata Nano</option>
-<!--                        <option value="beatle">Beatle</option>
-                        <option value="duster">Duster</option>
-                        <option value="mercedes_c350">Mercedes C350</option>
-                        <option value="audi_a7">Audi A7</option>
-                        <option value="ferrari">Ferrari</option>
-                        <option value="lamborghini">Lamborghini</option>
-                        <option value="aston_martin">Aston Martin</option>
-                        <option value="bugatti">Bugatti</bugatti>
-                        <option value="rolls_royce">Rolls Royce</option>-->
-                    </select>
+                    <input type="text" name="train_book_to_text" id="train_book_to_text" value="" placeholder="To city">
+                    <label for="train_book_date">Date:</label>
+                    <input type="date" name="train_book_date" id="train_book_date" value="" max="2020-12-31">
+                    <label for="train_book_time">Train Time:</label>
+                    <input type="time" name="train_book_time" id="train_book_time" value="10:00 AM">
                     <input type="submit" class="ui-shadow ui-btn ui-btn-b ui-corner-all" value="Process">
                 </form>
                 <script>
                     $(document).ready(function() {
-                        $("#rcho_to_text").hide();
-                        $("#rcho_to").change(function() {
+                        $("#train_book_to_text").hide();
+                        $("#train_book_to").change(function() {
                             var value = $(this).val();
                             if(value == "0") {
-                                $("#rcho_to_text").show();
+                                $("#train_book_to_text").show();
                             } else {
-                                $("#rcho_to_text").hide();
+                                $("#train_book_to_text").hide();
                             }
                         });
-                        $('#req-car-hire-outstation').validate({
+                        $('#train-booking-form').validate({
                             rules : {
-                                rcho_from:{required : true},
-                                rcho_to:{required : true},
-                                rcho_to_text:{required : true},
-                                rcho_date:{required : true},
-                                rcho_time:{required : true},
-                                rcho_days:{required : true},
-                                rcho_vehicle:{required : true}
+                                train_book_from:{required : true},
+                                train_book_to:{required : true},
+                                train_book_to_text:{required : true},
+                                train_book_date:{required : true},
+                                train_book_time:{required : true}
                             },
 
                             // Messages for form validation
                             messages : {
-                                rcho_from:{required : 'Please enter From City'},
-                                rcho_to:{required : 'Please enter To City'},
-                                rcho_to_text:{required : 'Please enter To City Text'},
-                                rcho_date:{required : 'Please enter Date of Travel'},
-                                rcho_time:{required : 'Please enter Pickup Time'},
-                                rcho_days:{required : 'Please enter Number of traveling days'},
-                                rcho_vehicle:{required : 'Please select vehicle'}
+                                train_book_from:{required : 'Please enter From City'},
+                                train_book_to:{required : 'Please enter To City'},
+                                train_book_to_text:{required : 'Please enter To City Text'},
+                                train_book_date:{required : 'Please enter Date of Travel'},
+                                train_book_time:{required : 'Please enter Train Time'}
                             },
 
                             // Do not change code below
@@ -384,24 +347,14 @@
                                 error.insertAfter(element.parent());
                             },
                             submitHandler: function(form) {
-                                data = convertToArray($('#req-car-hire-outstation').serializeArray());
+                                var data = convertToArray($('#train-booking-form').serializeArray());
                                 console.log(JSON.stringify(data));
-                                localStorage.setItem("cnt-req", "req-car-hire-outstation");
-                                localStorage.setItem("req-car-hire-outstation", JSON.stringify(data));
+                                localStorage.setItem("cnt-req", "train-booking");
+                                localStorage.setItem("train-booking", JSON.stringify(data));
                                 $.mobile.changePage( "inquirySubmit.html", { transition: "slide", changeHash: true });
                                 return false;
                             }
                         });
-                        /*
-                        $("#req-car-hire-outstation").submit(function( event ) {
-                            event.preventDefault();
-                            data = convertToArray($(this).serializeArray());
-                            console.log(JSON.stringify(data));
-                            localStorage.setItem("cnt-req", "req-car-hire-outstation");
-                            localStorage.setItem("req-car-hire-outstation", JSON.stringify(data));
-                            $.mobile.changePage( "inquirySubmit.html", { transition: "slide", changeHash: true });
-                        });
-                        */
                     });
 
                 </script>

@@ -8,3 +8,6 @@
 .ui-li-static.ui-collapsible > .ui-collapsible-heading.ui-collapsible-heading-collapsed > .ui-btn,
 .ui-li-static.ui-collapsible > .ui-collapsible-content {border-bottom-width: 0;}
 .ui-group-theme-b .ui-btn{background-color: #333;border-color: #1f1f1f;color: #fff;text-shadow: 0 1px 0 #111;}
+
+em.invalid{font-size: 0.8em;margin-bottom: 10px;display: block;color: #FF6B70;}
+.ui-select .ui-btn{margin-bottom: 8px;}
