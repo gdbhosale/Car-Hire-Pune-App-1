@@ -12,8 +12,8 @@ function convertToArray(a) {
     });
     return o;
 }
-function goBack() {
-    window.history.go(-3);
+function goBack(shift) {
+    window.history.go(shift);
 }
 $( document ).on( "pagecreate", function() {
     $( document ).on( "swipeleft swiperight", function( e ) {

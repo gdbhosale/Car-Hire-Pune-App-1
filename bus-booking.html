@@ -39,6 +39,7 @@
             </div>
             <div data-role="content">
                 <form method="post" name="req-form" id="bus-booking-form" action="">
+                    <input type="hidden" id="bus_booking" name="bus_booking" value="BUS">
                     <label for="bus_book_from">From:</label>
                     <select name="bus_book_from" id="bus_book_from">
                         <option>Pune</option>
@@ -320,6 +321,8 @@
                     <input type="date" name="bus_book_date" id="bus_book_date" value="" max="2020-12-31">
                     <label for="bus_book_time">Journey Time:</label>
                     <input type="time" name="bus_book_time" id="bus_book_time" value="10:00 AM">
+                    <label for="bus_book_days">Number of days:</label>
+                    <input type="number" name="bus_book_days" pattern="[0-9]*" id="bus_book_days" value="1" min="1">
                     <input type="submit" class="ui-shadow ui-btn ui-btn-b ui-corner-all" value="Process">
                 </form>
                 <script>

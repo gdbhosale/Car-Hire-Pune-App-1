@@ -39,6 +39,7 @@
             </div>
             <div data-role="content">
                 <form id="feedback-form" method="post" action="">
+                    <input type="hidden" id="feedback" name="feedback" value="feedback">
                     <label for="feedback_name">Name:</label>
                     <input type="text" name="feedback_name" id="feedback_name" value="">
                     <label for="feedback_phone">Phone:</label>
@@ -57,7 +58,7 @@
                         $('#feedback-form').validate({
                             rules : {
                                 feedback_name:{required : true},
-                                feedback_phone:{required : true},
+                                feedback_phone:{required : true, number:true},
                                 feedback_email:{required : true},
                                 feedback_subject:{required : true},
                                 feedback_message:{required : true}
@@ -66,7 +67,7 @@
                             // Messages for form validation
                             messages : {
                                 feedback_name:{required : "Please enter name"},
-                                feedback_phone:{required : "Please enter phone"},
+                                feedback_phone:{required : "Please enter phone", number:"Please enter numbers only"},
                                 feedback_email:{required : "Please enter email"},
                                 feedback_subject:{required : "Please enter subject"},
                                 feedback_message:{required : "Please enter message"}
@@ -77,21 +78,27 @@
                                 error.insertAfter(element.parent());
                             },
                             submitHandler: function(form) {
-                                /*var data = convertToArray($('#flight-booking-form').serializeArray());
-                                console.log(JSON.stringify(data));
-                                localStorage.setItem("cnt-req", "flight-booking");
-                                localStorage.setItem("flight-booking", JSON.stringify(data));
-                                $.mobile.changePage( "inquirySubmit.html", { transition: "slide", changeHash: true });
-                                return false; */
-								
-								$.ajax({
-									url: "http://carhirepune.in/webservices/feedback.php",
-									type: "POST",
-									data: $(this).serialize(),
-								}).done(function(data) {
-									console.log(data);
-									$.mobile.changePage( "success.html", { transition: "slide", changeHash: true });
-								});
+                                var $this = $( this ),
+                                theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+                                msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+                                textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+                                textonly = !!$this.jqmData( "textonly" );
+                                html = $this.jqmData( "html" ) || "";
+                                $.mobile.loading( "show", {
+                                    text: msgText,
+                                    textVisible: textVisible,
+                                    theme: theme,
+                                    textonly: textonly,
+                                    html: html
+                                });			
+                                $.ajax({
+                                    url: "http://carhirepune.in/webservices/submit.php",
+                                    type: "POST",
+                                    data: $(form).serialize(),
+                                }).done(function(data) {
+                                    console.log(data);
+                                    $.mobile.changePage( "feed-success.html", { transition: "slide", changeHash: true });
+                                });
 								
                             }
                         });

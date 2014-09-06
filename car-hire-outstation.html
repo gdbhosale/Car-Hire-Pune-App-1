@@ -20,6 +20,7 @@
         <div data-role="page" data-theme='a'>
             <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="left-panel" data-theme="b">
                 <ul data-role="listview" data-theme="b" style="margin-top:-16px;" class="nav-menu">
+                    <!--<li><a href="index.html" data-transition="slide">Home</a></li>-->
                     <li data-role="collapsible" data-iconpos="right" data-inset="false">
                         <h2>Car Hire</h2>
                         <ul data-role="listview" data-theme="a">
@@ -39,6 +40,7 @@
             </div>
             <div data-role="content">
                 <form method="post" name="req-form" id="req-car-hire-outstation" action="">
+                    <input type="hidden" id="rcho_booking" name="rcho_booking" value="CAR_OUTSTATION">
                     <label for="rcho_from">From:</label>
                     <select name="rcho_from" id="rcho_from">
                         <option>Pune</option>
@@ -329,11 +331,11 @@
                         <option value="ford_figo">Ford Fiesta</option>
                         <option value="ford_fiesta">Ford Figo</option>
                         <option value="safari">Tata Safari</option>
-                        <option value="safari">Tata Aria</option>
+                        <option value="aria">Tata Aria</option>
                         <option value="sumo">Tata Sumo</option>
-                        <option value="sumo">Tata Sumo Grande</option>
+                        <option value="sumo_grande">Tata Sumo Grande</option>
                         <option value="indica">Tata Indica</option>
-                        <option value="indica">Tata Nano</option>
+                        <option value="nano">Tata Nano</option>
 <!--                        <option value="beatle">Beatle</option>
                         <option value="duster">Duster</option>
                         <option value="mercedes_c350">Mercedes C350</option>
