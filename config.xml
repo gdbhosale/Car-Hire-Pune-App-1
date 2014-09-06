@@ -2,8 +2,8 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.dwij.kesari1"
-        versionCode="1"
-        version   = "1.0">
+        versionCode="2"
+        version   = "1.1">
     <name>Kesarinandan Travels</name>
     <description>
         Car Hire Pune can provide you the best fare rates with elegant service.		</description>
